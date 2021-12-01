@@ -24,7 +24,6 @@ public class Simulation {
      */
     private boolean nextRound() {
 
-        logger.log("Entrez votre premier guess : ");
         long guess = player.askNextGuess();
         if(guess == numberToGuess){
             return true;
@@ -34,9 +33,22 @@ public class Simulation {
         return false;
     }
 
-    public void loopUntilPlayerSucceed() {
+    public void loopUntilPlayerSucceed(long nbMax) {
+        System.out.println("Chiffre à deviner : " + this.numberToGuess);
+        long restant = 0;
+        long time1 = System.currentTimeMillis();
+        while (!this.nextRound() && restant < nbMax) {
+            restant++;
+        }
+        long res = System.currentTimeMillis() - time1;
+        if(restant < nbMax){
+            long secondes = res/1000;
+            long milli = res%1000;
+            logger.log("Félicitations, vous avez trouver le bon nombre en : " + secondes + "." + milli + "s");
+            logger.log("Temps en millisecondes : " + res);
+        } else if(restant == nbMax){
+            logger.log("Nombres d'itérations maximum atteinte.");
+        }
 
-        while(!nextRound());
-        logger.log("Félicitations, vous avez trouver le bon nombre !");
     }
 }
