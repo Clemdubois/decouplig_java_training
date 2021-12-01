@@ -8,7 +8,7 @@ public class ComputerPlayer implements Player{
     long nbDepart1;
     Logger logger = LoggerFactory.getLogger("");
     long min = 0;
-    long max = Long.MAX_VALUE;
+    long max = 100;
 
     public ComputerPlayer(long nbDepart){
          this.nbDepart1 = nbDepart;
@@ -21,7 +21,7 @@ public class ComputerPlayer implements Player{
 
     @Override
     public void respond(boolean lowerOrGreater) {
-        System.out.println("Guess : " + nbDepart1);
+        logger.log("Guess : " + nbDepart1);
         if (lowerOrGreater) {
             this.max = nbDepart1;
             this.nbDepart1/=2;

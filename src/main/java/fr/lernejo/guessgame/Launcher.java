@@ -28,7 +28,7 @@ public class Launcher {
             ComputerPlayer computer1 = new ComputerPlayer(nbDepart);
             Simulation simulation = new Simulation(computer1);
             SecureRandom numberToGuess = new SecureRandom();
-            long randomNumber = numberToGuess.nextLong(Long.MAX_VALUE);
+            long randomNumber = numberToGuess.nextLong(100) + 1;
             simulation.initialize(randomNumber);
             simulation.loopUntilPlayerSucceed(1000);
         }
@@ -37,10 +37,5 @@ public class Launcher {
             System.out.println("Il faut soit utiliser \"-interactive\", qui va lancer une partie avec l'utilisateur, ");
             System.out.println("soit utiliser \"-auto\", qui va lancer une partie automatique avec l'ordinateur.");
         }
-
-
-
-
-
     }
 }
