@@ -1,5 +1,8 @@
 package fr.lernejo.guessgame;
 
+import fr.lernejo.logger.Logger;
+import fr.lernejo.logger.LoggerFactory;
+
 import java.security.SecureRandom;
 
 public class Launcher {
@@ -15,6 +18,7 @@ public class Launcher {
     }
 
     public static void main(String[] args) {
+        Logger logger = LoggerFactory.getLogger("");
         if(args[0].compareTo("-interactive")==0){
             HumanPlayer human1 = new HumanPlayer();
             Simulation simulation = new Simulation(human1);
@@ -31,6 +35,7 @@ public class Launcher {
             long randomNumber = numberToGuess.nextLong(100) + 1;
             simulation.initialize(randomNumber);
             simulation.loopUntilPlayerSucceed(1000);
+            logger.log("Le bon nombre était : " + randomNumber + ".");
         }
         else{
             System.out.println("Les paramètres ne sont pas valides !");

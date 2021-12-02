@@ -19,9 +19,9 @@ public class HumanPlayer implements Player {
     @Override
     public void respond(boolean lowerOrGreater) {
         if(lowerOrGreater){
-            logger.log("Le nombre qu'il faut trouver est plus petit !");
+            logger.log("Plus petit");
         }else{
-            logger.log("Le nombre qu'il faut trouver est plus grand !");
+            logger.log("Plus grand");
         }
     }
 }

@@ -34,7 +34,6 @@ public class Simulation {
     }
 
     public void loopUntilPlayerSucceed(long nbMax) {
-        logger.log("Chiffre à deviner : " + this.numberToGuess);
         long restant = 0;
         long time1 = System.currentTimeMillis();
         while (!this.nextRound() && restant < nbMax) {

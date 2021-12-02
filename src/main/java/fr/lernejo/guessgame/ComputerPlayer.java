@@ -23,11 +23,15 @@ public class ComputerPlayer implements Player{
     public void respond(boolean lowerOrGreater) {
         logger.log("Guess : " + nbDepart1);
         if (lowerOrGreater) {
+            logger.log("Plus petit");
             this.max = nbDepart1;
             this.nbDepart1/=2;
+
         } else {
+            logger.log("PLus grand");
             this.min = nbDepart1;
             this.nbDepart1 = nbDepart1 + (this.max - nbDepart1)/2;
+
         }
     }
 }
